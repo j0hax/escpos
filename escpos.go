@@ -4,7 +4,6 @@ import (
 	"encoding/base64"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 
 	"strconv"
@@ -88,7 +87,7 @@ func (e *Escpos) reset() {
 func New(dst io.ReadWriter) (e *Escpos) {
 	e = &Escpos{
 		dst:    dst,
-		logger: log.New(ioutil.Discard, "", 0),
+		logger: log.New(io.Discard, "", 0),
 	}
 	e.reset()
 	return
